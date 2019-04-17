@@ -1262,7 +1262,7 @@ function gadget:GameFrame(n)
 					if te.energyProducerOrUser then
 						te.overdriveEnergyNet = te.overdriveEnergyNet + energyToRefund*te.freeStorage/totalFreeStorage
 					end
-		end
+				end
 				energyWasted = 0
 			else
 				for i = 1, allyTeamData.teams do

@@ -128,7 +128,7 @@ if (gadgetHandler:IsSyncedCode()) then
         return true;
       end;
 
-      local msg     = fullmsg:sub(11,msg:len());
+      local msg     = fullmsg:sub(11,fullmsg:len());
       local d = msg:find(";",d,true);
       local defname = msg:sub(1,d-1);
       local a = msg:find(";",d+1,true);
