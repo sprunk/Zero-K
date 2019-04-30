@@ -70,8 +70,8 @@ end
 local function CheckLabs(checkFeatures, onlyUnstick)
 	local labData = labList.data
 	local data, units, features
-	for i = 1, labList.count do
-		data = labData[i]
+	for j = 1, labList.count do
+		data = labData[j]
 		
 		if data.unstickHelp or (not onlyUnstick) then
 			local clearUnits = data.unitExpulsionParameters
