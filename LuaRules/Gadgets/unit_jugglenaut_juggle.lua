@@ -120,11 +120,11 @@ end
 -------------------------------------------------------------------------------------
 -------------------------------------------------------------------------------------
 
-function gadget:Explosion(weaponID, px, py, pz, ownerID)
+function gadget:Explosion(weaponID, px, nominal_py, pz, ownerID)
 	if throwWeaponID[weaponID] and ownerID then
 		local frame = Spring.GetGameFrame()
 		local sx,sy,sz = Spring.GetUnitPosition(ownerID)
-		py = Spring.GetGroundHeight(px,pz) + 20
+		local py = Spring.GetGroundHeight(px,pz) + 20
 		Spring.SpawnCEG("riotballgrav", sx, sy, sz, 0, 1, 0, COLLLECT_RADIUS)
 		local units = Spring.GetUnitsInSphere(sx, sy, sz, COLLLECT_RADIUS)
 		local parentDis = distance(sx, sy, sz, px,py,pz)
