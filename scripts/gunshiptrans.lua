@@ -171,13 +171,16 @@ function isValidCargo(soonPassenger, passenger)
 	(passenger and Spring.ValidUnitID(passenger)))
 end
 
+local function CheckPassenger()
+	local passengerId = getPassengerId()
+	return passengerId and (getCommandId() == 75) and isValidCargo(passengerId) and isNearPickupPoint(passengerId, 120)
+end
+
 local function PickupAndDropFixer()
 	while true do
-		local passengerId = getPassengerId()
-		if passengerId and (getCommandId() == 75) and isValidCargo(passengerId) and isNearPickupPoint(passengerId, 120) then
+		if CheckPassenger() then
 			Sleep(1500)
-			local passengerId = getPassengerId()
-			if passengerId and (getCommandId() == 75) and isValidCargo(passengerId) and isNearPickupPoint(passengerId, 120) then
+			if CheckPassenger() then
 				Spring.GiveOrderToUnit(unitID, CMD.WAIT, {}, {})
 				Spring.GiveOrderToUnit(unitID, CMD.WAIT, {}, {})
 			end

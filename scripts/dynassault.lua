@@ -44,11 +44,6 @@ local SIG_RESTORE_TORSO = 32
 local TORSO_SPEED_YAW = math.rad(300)
 local ARM_SPEED_PITCH = math.rad(180)
 
-local PACE = 1.8
-local BASE_VELOCITY = UnitDefNames.benzcom1.speed or 1.25*30
-local VELOCITY = UnitDefs[unitDefID].speed or BASE_VELOCITY
-PACE = PACE * VELOCITY/BASE_VELOCITY
-
 local THIGH_FRONT_ANGLE = -math.rad(45)
 local THIGH_FRONT_SPEED = math.rad(42) * PACE
 local THIGH_BACK_ANGLE = math.rad(30)
@@ -97,10 +92,10 @@ wepTable = nil
 -- Walking
 --------------------------------------------------------------------------------
 local PACE_MULT = 0.7
-local PACE = 2*PACE_MULT
+local BASE_PACE = 2
 local BASE_VELOCITY = UnitDefNames.benzcom1.speed or 1.25*30
 local VELOCITY = UnitDefs[unitDefID].speed or BASE_VELOCITY
-local PACE = PACE * VELOCITY/BASE_VELOCITY
+local PACE = BASE_PACE * PACE_MULT * VELOCITY/BASE_VELOCITY
 
 local SLEEP_TIME = 360/PACE_MULT
 
@@ -140,7 +135,6 @@ local function Walk()
 	Signal(SIG_WALK)
 	SetSignalMask(SIG_WALK)
 	
-	local speedMult = 1
 	local scaleMult = dyncomm.GetScale()
 	
 	while true do

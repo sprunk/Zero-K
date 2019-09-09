@@ -3,7 +3,7 @@ include "constants.lua"
 local scriptReload = include("scriptReload.lua")
 
 --pieces
-local base, middle, heading,
+local base, middle, headingPiece,
 	mbase, mfbeam, mrbeam, mhull, mwing, mwingtip, mjet, mrack, mmissile, mmissleflare,
 	rbase, rfbeam, rrbeam, rhull, rwing, rwingtip, rjet, rrack, rmissile, rmissleflare,
 	lbase, lfbeam, lrbeam, lhull, lwing, lwingtip, ljet, lrack, lmissile, lmissleflare = piece(
@@ -54,7 +54,7 @@ local function TiltBody()
 				local velHeading = Spring.GetHeadingFromVector(vx, vz)*GG.Script.headingToRad - myHeading
 				-- south is 0, increases anticlockwise
 
-				local px,_,pz = Spring.GetUnitPiecePosition(unitID, heading)
+				local px,_,pz = Spring.GetUnitPiecePosition(unitID, headingPiece)
 
 				local curHeading = -Spring.GetHeadingFromVector(-px, -pz)*GG.Script.headingToRad
 
