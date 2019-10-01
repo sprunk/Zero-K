@@ -38,7 +38,7 @@ local function FlattenRectangle(left, top, right, bottom, height)
 	Spring.SetHeightMapFunc(FlattenFunc, left, top, right, bottom, height)
 end
 
-function FlattenFactory(unitID, unitDefID)
+local function FlattenFactory(unitID, unitDefID)
 	local ud = UnitDefs[unitDefID]
 	local sX = ud.xsize*4
 	local sZ = ud.zsize*4
@@ -47,7 +47,7 @@ function FlattenFactory(unitID, unitDefID)
 		sX, sZ = sZ, sX
 	end
 
-	local x,y,z = Spring.GetUnitPosition(unitID)
+	local x,_,z = Spring.GetUnitPosition(unitID)
 	local height
 	if facing == 0 then -- South
 		height = Spring.GetGroundHeight(x, z + 0.8*sZ)

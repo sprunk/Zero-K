@@ -43,6 +43,8 @@ local function RunCmd(cmd, line, words, playerID)
   local chunk, err = loadstring(line, "run", _G)
   if (chunk) then
     chunk()
+  else
+    Spring.Echo(err)
   end
   return true
 end
@@ -55,6 +57,8 @@ local function EchoCmd(cmd, line, words, playerID)
   local chunk, err = loadstring("return " .. line, "echo", _G)
   if (chunk) then
     Spring.Echo(chunk())
+  else
+    Spring.Echo(err)
   end
   return true
 end

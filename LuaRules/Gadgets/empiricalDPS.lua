@@ -26,8 +26,8 @@ local start, damage
 local attackerUnitDefID
 
 function gadget:UnitDamaged(unitID, unitDefID,  unitTeam, unitDamage, paralyzer, weaponID, attackerID, attackerDefID, attackerTeam)
-	local wd = WeaponDefs[weaponID]
-	if wd then
+	-- local wd = WeaponDefs[weaponID]
+	-- if wd then
 	--	local aoe = wd.damageAreaOfEffect
 	--	local dist = 0.09
 	--	local edgeEff = wd.edgeEffectiveness
@@ -40,7 +40,7 @@ function gadget:UnitDamaged(unitID, unitDefID,  unitTeam, unitDamage, paralyzer,
 	--	Spring.Echo(aoe)
 	--	Spring.Echo(edgeEff)
 	--	Spring.Echo(theoryDist)
-	end
+	-- end
 	
 	--Spring.SetUnitExperience(attackerID,0.001)
 	local frame = Spring.GetGameFrame()

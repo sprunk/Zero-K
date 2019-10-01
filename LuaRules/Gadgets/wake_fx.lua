@@ -74,7 +74,7 @@ function gadget:GameFrame(n)
 		
         for i = current_fold, units.count, n_folds do
             local unitID = listData[i]
-            local x,y,z = Spring.GetUnitPosition(unitID)
+            local _,y = Spring.GetUnitPosition(unitID)
             local h = unit[unitID].h
             if y and h then
 				-- emit wakes only when moving and not completely submerged

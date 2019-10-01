@@ -13,7 +13,6 @@ end
 local GetGroundHeight = Spring.GetGroundHeight
 
 local nux = {}
-local defaultSuccessExplosion = [[LONDON_FLAT]]
 local defaultInterceptExplosion = [[ANTINUKE]]
 
 if (not gadgetHandler:IsSyncedCode()) then
@@ -44,8 +43,7 @@ end
 function gadget:Explosion(weaponID, px, py, pz, ownerID)
 	if (nux[weaponID] and py-math.max(0, GetGroundHeight(px,pz))>200) then
 		Spring.SpawnCEG(defaultInterceptExplosion, px, py, pz, 0, 0, 0, nux[weaponID])
-	else
-		return false
+		return true
 	end
-	return true -- always suppress engine/weapon default effects
+	return false
 end

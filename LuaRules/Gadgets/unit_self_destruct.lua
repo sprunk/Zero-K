@@ -19,7 +19,6 @@ return {
 end
 
 local spGetTeamUnits         = Spring.GetTeamUnits
-local spGetUnitAllyTeam      = Spring.GetUnitAllyTeam
 local spGetUnitDefID         = Spring.GetUnitDefID
 local spGetUnitSelfDTime     = Spring.GetUnitSelfDTime
 local spGiveOrderToUnitArray = Spring.GiveOrderToUnitArray
@@ -45,7 +44,6 @@ for unitDefID, unitDef in pairs(UnitDefs) do
 end
 
 function gadget:Initialize()
-	local max = math.max
 	for i = 1, teamCount do
 		local teamID = teamList[i]
 		deathTeams[teamID] = false
